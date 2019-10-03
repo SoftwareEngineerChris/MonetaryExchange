@@ -22,8 +22,9 @@ An `Exchange` can be decoded directly from a standard [Fixer.io](https://fixer.i
 See [Fixer API Documentation](https://fixer.io/documentation#latestrates) for more information about its API usage.
 
 ### Example
-
-    let exchange = try? JSONDecoder().decode(Exchange.self, from: fixerResponseData)
+```swift
+let exchange = try? JSONDecoder().decode(Exchange.self, from: fixerResponseData)
+```
 
 Alternatively, an `Exchange` can be constructed with a base currency and a dictionary of currency-rate pairs.
 
