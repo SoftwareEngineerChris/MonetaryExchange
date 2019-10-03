@@ -47,7 +47,8 @@
             
             <h1 id='monetaryexchange' class='heading'>MonetaryExchange</h1>
 
-<p><a href="https://app.bitrise.io/app/57e424b934229804"><img src="https://app.bitrise.io/app/57e424b934229804/status.svg?token=zDHT8jgVf-wPoK5oVp7LcA&branch=master" alt="Build Status"></a> 
+<p><a href="https://app.bitrise.io/app/57e424b934229804"><img src="https://app.bitrise.io/app/57e424b934229804/status.svg?token=zDHT8jgVf-wPoK5oVp7LcA&branch=master" alt="Build Status"></a>
+<a href="https://softwareengineerchris.github.io/MonetaryExchange"><img src="https://softwareengineerchris.github.io/MonetaryExchange/badge.svg" alt="Docs"></a>
 <a href="#"><img src="https://img.shields.io/badge/SPM-Supported-informational" alt="SPM"></a>
 <a href="#"><img src="https://img.shields.io/badge/Swift%20Version-5.1-informational" alt="Swift Version"></a></p>
 
@@ -64,7 +65,7 @@ those of different <code>Currency</code> values.</p>
 <p>An <code><a href="Structs/Exchange.html">Exchange</a></code> can be decoded directly from a standard <a href="https://fixer.io/">Fixer.io</a> <em>Latest Rates</em> JSON response.
 See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation</a> for more information about its API usage.</p>
 <h3 id='example' class='heading'>Example</h3>
-<pre class="highlight plaintext"><code>let exchange = try? JSONDecoder().decode(Exchange.self, from: fixerResponseData)
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">exchange</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">Exchange</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">fixerResponseData</span><span class="p">)</span>
 </code></pre>
 
 <p>Alternatively, an <code><a href="Structs/Exchange.html">Exchange</a></code> can be constructed with a base currency and a dictionary of currency-rate pairs.</p>
