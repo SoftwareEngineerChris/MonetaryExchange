@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Exchange Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Exchange" class="dashAnchor"></a>
+    <a title="Exchange Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">MonetaryExchange Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/SoftwareEngineerChris/MonetaryExchange"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fsoftwareengineerchris%2Egithub%2Eio%2Fdocsets%2FMonetaryExchange%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">MonetaryExchange Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Exchange Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/ExchangeError.html">– ExchangeError</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Exchange</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Exchange</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                </div>
+              </div>
+            <p><code>Exchange</code> provides exchange rates between currencies. It can also convert <code>MonetaryAmount</code> values into
+those of different <code>Currency</code> values.</p>
+<h2 id='decoding-a-fixer-io-json-response' class='heading'>Decoding a Fixer.io JSON response</h2>
+
+<p>An <code>Exchange</code> can be decoded directly from a standard <a href="https://fixer.io/">Fixer.io</a> <em>Latest Rates</em> JSON response.
+See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation</a> for more information about its API usage.</p>
+<h3 id='example' class='heading'>Example</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">exchange</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">Exchange</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">fixerResponseData</span><span class="p">)</span>
+</code></pre>
+
+<p>Alternatively, an <code>Exchange</code> can be constructed with a base currency and a dictionary of currency-rate pairs.</p>
+<h2 id='cross-rates' class='heading'>Cross-rates</h2>
+
+<p>If converting between two currencies which neither are the base currency, but each have a rate against the base currency,
+then a cross-rate will be produced.</p>
+
+<p>For example, if the base currency is <em>EUR</em> but a rate for <em>GBP to USD</em> is requested, a cross-rate will be used. i.e. <em>GBP to EUR to USD</em>.</p>
+
+<p>See the Collins Dictionary definition of <a href="https://www.collinsdictionary.com/dictionary/english/cross-rate">Cross-Rate</a>
+for more information.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Types"></a>
+                <a name="//apple_ref/swift/Section/Types" class="dashAnchor"></a>
+                <a href="#/Types">
+                  <h3 class="section-name">Types</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V4Ratea"></a>
+                    <a name="//apple_ref/swift/Alias/Rate" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V4Ratea">Rate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents a monetary exchange rate between two currencies. Rounded to six decimal places.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Rate</span> <span class="o">=</span> <span class="kt">RoundedDecimal</span><span class="o">&lt;</span><span class="kt">Places</span><span class="o">.</span><span class="n">six</span><span class="o">&gt;</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V0B5ErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/ExchangeError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V0B5ErrorO">ExchangeError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The possible errors thrown by an <code><a href="../Structs/Exchange.html">Exchange</a></code></p>
+
+                        <a href="../Structs/Exchange/ExchangeError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ExchangeError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Values"></a>
+                <a name="//apple_ref/swift/Section/Values" class="dashAnchor"></a>
+                <a href="#/Values">
+                  <h3 class="section-name">Values</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V4base0A6Amount8CurrencyVvp"></a>
+                    <a name="//apple_ref/swift/Property/base" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V4base0A6Amount8CurrencyVvp">base</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The base currency for this <code>Exchange</code>. The currency to which all rates from this exchange are based upon.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">base</span><span class="p">:</span> <span class="kt">Currency</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5ratesSDy0A6Amount8CurrencyV14RoundedDecimalAHVyAH6PlacesV3sixVGGvp"></a>
+                    <a name="//apple_ref/swift/Property/rates" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5ratesSDy0A6Amount8CurrencyV14RoundedDecimalAHVyAH6PlacesV3sixVGGvp">rates</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A dictionary of <code>Currency</code> values to <code><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></code> values where the <code><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></code> is the exchange rate between the base <code>Currency</code> and the queried <code>Currency</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">let</span> <span class="nv">rates</span><span class="p">:</span> <span class="p">[</span><span class="kt">Currency</span> <span class="p">:</span> <span class="kt"><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Construction"></a>
+                <a name="//apple_ref/swift/Section/Construction" class="dashAnchor"></a>
+                <a href="#/Construction">
+                  <h3 class="section-name">Construction</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V4base5ratesAC0A6Amount8CurrencyV_SDyAH14RoundedDecimalAIVyAI6PlacesV3sixVGGtcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(base:rates:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V4base5ratesAC0A6Amount8CurrencyV_SDyAH14RoundedDecimalAIVyAI6PlacesV3sixVGGtcfc">init(base:rates:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new <code>Exchange</code> from a base <code>Currency</code> and a collection of exchange rates.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">base</span><span class="p">:</span> <span class="kt">Currency</span><span class="p">,</span> <span class="nv">rates</span><span class="p">:</span> <span class="p">[</span><span class="kt">Currency</span> <span class="p">:</span> <span class="kt"><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></span><span class="p">])</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>base</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The base currency for this <code>Exchange</code>. The currency to which all rates from this exchange are based upon.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>rates</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A dictionary of <code>Currency</code> values to <code><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></code> values where the <code><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></code> is the exchange rate between the base <code>Currency</code> and the queried <code>Currency</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Exchanging%20rates%20and%20MonetaryAmounts"></a>
+                <a name="//apple_ref/swift/Section/Exchanging rates and MonetaryAmounts" class="dashAnchor"></a>
+                <a href="#/Exchanging%20rates%20and%20MonetaryAmounts">
+                  <h3 class="section-name">Exchanging rates and MonetaryAmounts</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V4rate4from14targetCurrency14RoundedDecimalAGVyAG6PlacesV3sixVG0A6Amount0F0V_APtKF"></a>
+                    <a name="//apple_ref/swift/Method/rate(from:targetCurrency:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V4rate4from14targetCurrency14RoundedDecimalAGVyAG6PlacesV3sixVG0A6Amount0F0V_APtKF">rate(from:targetCurrency:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    If the exchange has no exchange rate for the <code>targetCurrency</code>, this method will throw <code><a href="../Structs/Exchange/ExchangeError.html#/s:16MonetaryExchange0B0V0B5ErrorO06noRateC0yA2EmF">ExchangeError.noRateError</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">rate</span><span class="p">(</span><span class="n">from</span> <span class="nv">originCurrency</span><span class="p">:</span> <span class="kt">Currency</span><span class="p">,</span> <span class="nv">targetCurrency</span><span class="p">:</span> <span class="kt">Currency</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Structs/Exchange.html#/s:16MonetaryExchange0B0V4Ratea">Rate</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>originCurrency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <q>base</q> <code>Currency</code> in the pair.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetCurrency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <q>quote</q> <code>Currency</code> in the pair.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The exchange rate for the provided currency pair.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V7convert14monetaryAmount2to0aE0AGVAH_AG8CurrencyVtKF"></a>
+                    <a name="//apple_ref/swift/Method/convert(monetaryAmount:to:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V7convert14monetaryAmount2to0aE0AGVAH_AG8CurrencyVtKF">convert(monetaryAmount:to:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    If the exchange has no exchange rate for the <code>targetCurrency</code>, this method will throw <code><a href="../Structs/Exchange/ExchangeError.html#/s:16MonetaryExchange0B0V0B5ErrorO06noRateC0yA2EmF">ExchangeError.noRateError</a></code>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">convert</span><span class="p">(</span><span class="nv">monetaryAmount</span><span class="p">:</span> <span class="kt">MonetaryAmount</span><span class="p">,</span> <span class="n">to</span> <span class="nv">targetCurrency</span><span class="p">:</span> <span class="kt">Currency</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">MonetaryAmount</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>monetaryAmount</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>MonetaryAmount</code> which has a <code>Currency</code> to be converted to the <code>targetCurrency</code></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>targetCurrency</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The <q>quote</q> <code>Currency</code> in the pair (the base being that in the <code>monetaryAmount</code> parameter).</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A <code>MonetaryAmount</code> representing the original amount converted to the target currency using the <code>Exchange</code> exchange rate.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Decodable"></a>
+                <a name="//apple_ref/swift/Section/Decodable" class="dashAnchor"></a>
+                <a href="#/Decodable">
+                  <h3 class="section-name">Decodable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V4fromACs7Decoder_p_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V4fromACs7Decoder_p_tKcfc">init(from:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An <code>Exchange</code> can be decoded directly from a standard standard <a href="https://fixer.io/">Fixer.io</a> <em>Latest Rates</em> JSON response.
+See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation</a> for more information about its API usage.</p>
+<h4 id='example' class='heading'>Example</h4>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">exchange</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">Exchange</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">fixerResponseData</span><span class="p">)</span>
+</code></pre>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">from</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">Decoder</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

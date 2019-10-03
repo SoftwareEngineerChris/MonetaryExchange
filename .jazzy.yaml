@@ -1,0 +1,8 @@
+module: MonetaryExchange
+swift_build_tool: spm
+build_tool_arguments: [ "-Xswiftc", "-swift-version", "-Xswiftc", "5" ]
+github_url: https://github.com/SoftwareEngineerChris/MonetaryExchange
+root_url: https://softwareengineerchris.github.io/MonetaryExchange
+author: Software Engineering Limited
+author_url: https://softwareengineering.io
+

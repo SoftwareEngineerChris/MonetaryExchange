@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Structures  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Section/Structures" class="dashAnchor"></a>
+    <a title="Structures  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">MonetaryExchange Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/SoftwareEngineerChris/MonetaryExchange"><img src="img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fsoftwareengineerchris%2Egithub%2Eio%2Fdocsets%2FMonetaryExchange%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">MonetaryExchange Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Structures  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Structs/Exchange/ExchangeError.html">– ExchangeError</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Structures</h1>
+            <p>The following structures are available globally.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V"></a>
+                    <a name="//apple_ref/swift/Struct/Exchange" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V">Exchange</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>Exchange</code> provides exchange rates between currencies. It can also convert <code>MonetaryAmount</code> values into
+those of different <code>Currency</code> values.</p>
+<h2 id='decoding-a-fixer-io-json-response' class='heading'>Decoding a Fixer.io JSON response</h2>
+
+<p>An <code>Exchange</code> can be decoded directly from a standard <a href="https://fixer.io/">Fixer.io</a> <em>Latest Rates</em> JSON response.
+See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation</a> for more information about its API usage.</p>
+<h3 id='example' class='heading'>Example</h3>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">exchange</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">Exchange</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">fixerResponseData</span><span class="p">)</span>
+</code></pre>
+
+<p>Alternatively, an <code>Exchange</code> can be constructed with a base currency and a dictionary of currency-rate pairs.</p>
+<h2 id='cross-rates' class='heading'>Cross-rates</h2>
+
+<p>If converting between two currencies which neither are the base currency, but each have a rate against the base currency,
+then a cross-rate will be produced.</p>
+
+<p>For example, if the base currency is <em>EUR</em> but a rate for <em>GBP to USD</em> is requested, a cross-rate will be used. i.e. <em>GBP to EUR to USD</em>.</p>
+
+<p>See the Collins Dictionary definition of <a href="https://www.collinsdictionary.com/dictionary/english/cross-rate">Cross-Rate</a>
+for more information.</p>
+
+                        <a href="Structs/Exchange.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Exchange</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
