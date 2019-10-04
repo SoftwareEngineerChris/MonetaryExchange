@@ -142,9 +142,11 @@ final class MonetaryExchangeFixerTests: XCTestCase {
             completion: { result in capturedResult = result }
         )
         
-        guard case .failure(.decodingError) = capturedResult else {
+        guard case let .failure(.decodingError(body, _)) = capturedResult else {
             return XCTFail("Expected decodingError failure, got \(String(describing: capturedResult))")
         }
+        
+        XCTAssertEqual(body, RateData.withoutBase)
     }
     
     func test_exchange_uponCompletion_noError_validData_completesWithSuccess() {

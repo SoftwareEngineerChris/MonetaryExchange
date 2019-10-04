@@ -84,7 +84,8 @@ public extension Exchange {
                 do {
                     return completion(.success(try JSONDecoder().decode(Exchange.self, from: data)))
                 } catch {
-                    return completion(.failure(.decodingError(underlyingError: error)))
+                    let body = String(data: data, encoding: .utf8)
+                    return completion(.failure(.decodingError(body: body, underlyingError: error)))
                 }
             }
             
@@ -108,7 +109,7 @@ public extension Exchange {
             /// Something went wrong when requesting data from the API. See the `underlyingError` for more information.
             case requestFailure(underlyingError: Error)
             /// Something went wrong when decoding the data from the API into an `Exchange` value. See the `underlyingError` for more information.
-            case decodingError(underlyingError: Error)
+            case decodingError(body: String?, underlyingError: Error)
         }
         
         // MARK: Fixer.io Default Parameters
