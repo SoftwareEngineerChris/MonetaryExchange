@@ -18,10 +18,26 @@ dependencies: [
 ```
 
 ## Decoding a Fixer.io JSON response
-An `Exchange` can be decoded directly from a standard [Fixer.io](https://fixer.io/) _Latest Rates_ JSON response.
+An `Exchange` can be decoded directly from a the [Fixer.io](https://fixer.io/) Latest Rates JSON response.
 See [Fixer API Documentation](https://fixer.io/documentation#latestrates) for more information about its API usage.
 
-### Example
+### Example using the Fixer Extension
+
+```swift
+Exchange.Fixer.exchange(accessKey: "YourFixerAccessKey") { result in
+    switch result {
+        case let .success(exchange):
+            // We have an Exchange value
+
+        case let .failure(error):
+            // Something went wrong. Dig into the error.
+     }
+}
+```
+See the documentation for `Exchange.Fixer` for more information.
+
+### Example using JSONDecoder Directly
+
 ```swift
 let exchange = try? JSONDecoder().decode(Exchange.self, from: fixerResponseData)
 ```

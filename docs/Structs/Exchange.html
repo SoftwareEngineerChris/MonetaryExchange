@@ -38,6 +38,9 @@
               <li class="nav-group-task">
                 <a href="../Structs/Exchange/ExchangeError.html">– ExchangeError</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Exchange/Fixer.html">– Fixer</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -54,15 +57,6 @@
               </div>
             <p><code>Exchange</code> provides exchange rates between currencies. It can also convert <code>MonetaryAmount</code> values into
 those of different <code>Currency</code> values.</p>
-<h2 id='decoding-a-fixer-io-json-response' class='heading'>Decoding a Fixer.io JSON response</h2>
-
-<p>An <code>Exchange</code> can be decoded directly from a standard <a href="https://fixer.io/">Fixer.io</a> <em>Latest Rates</em> JSON response.
-See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation</a> for more information about its API usage.</p>
-<h3 id='example' class='heading'>Example</h3>
-<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">exchange</span> <span class="o">=</span> <span class="k">try</span><span class="p">?</span> <span class="kt">JSONDecoder</span><span class="p">()</span><span class="o">.</span><span class="nf">decode</span><span class="p">(</span><span class="kt">Exchange</span><span class="o">.</span><span class="k">self</span><span class="p">,</span> <span class="nv">from</span><span class="p">:</span> <span class="n">fixerResponseData</span><span class="p">)</span>
-</code></pre>
-
-<p>Alternatively, an <code>Exchange</code> can be constructed with a base currency and a dictionary of currency-rate pairs.</p>
 <h2 id='cross-rates' class='heading'>Cross-rates</h2>
 
 <p>If converting between two currencies which neither are the base currency, but each have a rate against the base currency,
@@ -420,6 +414,57 @@ for more information.</p>
             </div>
             <div class="task-group">
               <div class="task-name-container">
+                <a name="/Fixer.io%20Support"></a>
+                <a name="//apple_ref/swift/Section/Fixer.io Support" class="dashAnchor"></a>
+                <a href="#/Fixer.io%20Support">
+                  <h3 class="section-name">Fixer.io Support</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV"></a>
+                    <a name="//apple_ref/swift/Struct/Fixer" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV">Fixer</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds support for requesting data from the <em>Fixer.io Latest Rates</em> API and being provided
+with an <code><a href="../Structs/Exchange.html">Exchange</a></code> instance configured with this data.</p>
+<h3 id='example' class='heading'>Example</h3>
+<pre class="highlight swift"><code><span class="kt">Exchange</span><span class="o">.</span><span class="kt">Fixer</span><span class="o">.</span><span class="nf">exchange</span><span class="p">(</span><span class="nv">accessKey</span><span class="p">:</span> <span class="s">"YourFixerAccessKey"</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">exchange</span><span class="p">):</span>
+            <span class="c1">// We have an Exchange value</span>
+
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+            <span class="c1">// Something went wrong. Dig into the error.</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+                        <a href="../Structs/Exchange/Fixer.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Fixer</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
                 <a name="/Decodable"></a>
                 <a name="//apple_ref/swift/Section/Decodable" class="dashAnchor"></a>
                 <a href="#/Decodable">
@@ -463,7 +508,7 @@ See <a href="https://fixer.io/documentation#latestrates">Fixer API Documentation
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-03)</p>
+          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-04)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

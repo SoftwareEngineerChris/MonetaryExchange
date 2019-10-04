@@ -13,16 +13,6 @@ import MonetaryAmount
 /// `Exchange` provides exchange rates between currencies. It can also convert `MonetaryAmount` values into
 /// those of different `Currency` values.
 ///
-/// ## Decoding a Fixer.io JSON response
-/// An `Exchange` can be decoded directly from a standard [Fixer.io](https://fixer.io/) _Latest Rates_ JSON response.
-/// See [Fixer API Documentation](https://fixer.io/documentation#latestrates) for more information about its API usage.
-///
-/// ### Example
-///
-///     let exchange = try? JSONDecoder().decode(Exchange.self, from: fixerResponseData)
-///
-/// Alternatively, an `Exchange` can be constructed with a base currency and a dictionary of currency-rate pairs.
-///
 /// ## Cross-rates
 ///
 /// If converting between two currencies which neither are the base currency, but each have a rate against the base currency,

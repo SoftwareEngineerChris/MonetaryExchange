@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FixerError Enumeration Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../../js/jquery.min.js" defer></script>
+    <script src="../../../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Enum/FixerError" class="dashAnchor"></a>
+    <a title="FixerError Enumeration Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../../index.html">MonetaryExchange Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/SoftwareEngineerChris/MonetaryExchange"><img src="../../../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fsoftwareengineerchris%2Egithub%2Eio%2Fdocsets%2FMonetaryExchange%2Exml"><img src="../../../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../../index.html">MonetaryExchange Reference</a>
+        <img id="carat" src="../../../img/carat.png" />
+        FixerError Enumeration Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../../Structs/Exchange/ExchangeError.html">– ExchangeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../../Structs/Exchange/Fixer.html">– Fixer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>FixerError</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FixerError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                </div>
+              </div>
+            <p>Errors that can occur when requesting an <code><a href="../../../Structs/Exchange.html">Exchange</a></code> value using the Fixer.io API</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C5ErrorO6noDatayA2GmF"></a>
+                    <a name="//apple_ref/swift/Element/noData" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C5ErrorO6noDatayA2GmF">noData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>No data was returned from the API</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">noData</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C5ErrorO10invalidURLyA2GmF"></a>
+                    <a name="//apple_ref/swift/Element/invalidURL" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C5ErrorO10invalidURLyA2GmF">invalidURL</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Failed to construct a valid URL from the components provided</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidURL</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C5ErrorO14requestFailureyAGs0D0_p_tcAGmF"></a>
+                    <a name="//apple_ref/swift/Element/requestFailure(underlyingError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C5ErrorO14requestFailureyAGs0D0_p_tcAGmF">requestFailure(underlyingError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Something went wrong when requesting data from the API. See the <code>underlyingError</code> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">requestFailure</span><span class="p">(</span><span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C5ErrorO08decodingD0yAGs0D0_p_tcAGmF"></a>
+                    <a name="//apple_ref/swift/Element/decodingError(underlyingError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C5ErrorO08decodingD0yAGs0D0_p_tcAGmF">decodingError(underlyingError:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Something went wrong when decoding the data from the API into an <code><a href="../../../Structs/Exchange.html">Exchange</a></code> value. See the <code>underlyingError</code> for more information.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">decodingError</span><span class="p">(</span><span class="nv">underlyingError</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

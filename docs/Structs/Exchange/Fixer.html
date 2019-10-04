@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fixer Structure Reference</title>
+    <link rel="stylesheet" type="text/css" href="../../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../../js/jquery.min.js" defer></script>
+    <script src="../../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Struct/Fixer" class="dashAnchor"></a>
+    <a title="Fixer Structure Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../../index.html">MonetaryExchange Docs</a> (100% documented)</p>
+        <p class="header-right"><a href="https://github.com/SoftwareEngineerChris/MonetaryExchange"><img src="../../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Fsoftwareengineerchris%2Egithub%2Eio%2Fdocsets%2FMonetaryExchange%2Exml"><img src="../../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../../index.html">MonetaryExchange Reference</a>
+        <img id="carat" src="../../img/carat.png" />
+        Fixer Structure Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../../Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange.html">Exchange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange/ExchangeError.html">– ExchangeError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../../Structs/Exchange/Fixer.html">– Fixer</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Fixer</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Fixer</span></code></pre>
+
+                </div>
+              </div>
+            <p>Adds support for requesting data from the <em>Fixer.io Latest Rates</em> API and being provided
+with an <code><a href="../../Structs/Exchange.html">Exchange</a></code> instance configured with this data.</p>
+<h3 id='example' class='heading'>Example</h3>
+<pre class="highlight swift"><code><span class="kt">Exchange</span><span class="o">.</span><span class="kt">Fixer</span><span class="o">.</span><span class="nf">exchange</span><span class="p">(</span><span class="nv">accessKey</span><span class="p">:</span> <span class="s">"YourFixerAccessKey"</span><span class="p">)</span> <span class="p">{</span> <span class="n">result</span> <span class="k">in</span>
+    <span class="k">switch</span> <span class="n">result</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">success</span><span class="p">(</span><span class="n">exchange</span><span class="p">):</span>
+            <span class="c1">// We have an Exchange value</span>
+
+        <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">failure</span><span class="p">(</span><span class="n">error</span><span class="p">):</span>
+            <span class="c1">// Something went wrong. Dig into the error.</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fetching%20latest%20rates%20from%20Fixer"></a>
+                <a name="//apple_ref/swift/Section/Fetching latest rates from Fixer" class="dashAnchor"></a>
+                <a href="#/Fetching%20latest%20rates%20from%20Fixer">
+                  <h3 class="section-name">Fetching latest rates from Fixer</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV8exchange7session4host4path6secure9accessKey10completionSo16NSURLSessionTaskCSgSo0L0C_S2SSbSSSgys6ResultOyAcE0C5ErrorOGctFZ"></a>
+                    <a name="//apple_ref/swift/Method/exchange(session:host:path:secure:accessKey:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV8exchange7session4host4path6secure9accessKey10completionSo16NSURLSessionTaskCSgSo0L0C_S2SSbSSSgys6ResultOyAcE0C5ErrorOGctFZ">exchange(session:host:path:secure:accessKey:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides an <code><a href="../../Structs/Exchange.html">Exchange</a></code> value based upon the Fixer.io <em>Latest Rates</em> API.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
+<span class="kd">static</span> <span class="kd">public</span> <span class="kd">func</span> <span class="nf">exchange</span><span class="p">(</span>
+    <span class="nv">session</span><span class="p">:</span> <span class="kt">URLSession</span> <span class="o">=</span> <span class="o">.</span><span class="n">shared</span><span class="p">,</span>
+    <span class="nv">host</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n"><a href="../../Structs/Exchange/Fixer.html#/s:16MonetaryExchange0B0V5FixerV11defaultHostSSvpZ">defaultHost</a></span><span class="p">,</span>
+    <span class="nv">path</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="n"><a href="../../Structs/Exchange/Fixer.html#/s:16MonetaryExchange0B0V5FixerV14detaultAPIPathSSvpZ">detaultAPIPath</a></span><span class="p">,</span>
+    <span class="nv">secure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nv">accessKey</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span>
+    <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../../Structs/Exchange/Fixer.html#/s:16MonetaryExchange0B0V5FixerV0C10Completiona">FixerCompletion</a></span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">URLSessionTask</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>session</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A <code>URLSession</code> used to create the <code>URLSessionTask</code>. <em>Defaults to URLSession.shared</em></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>host</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The host name (domain) of a <em>Fixer.io</em> compatible API. <em>Defaults to the standard Fixer.io data host</em></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path (domain) to a <em>Fixer.io Latest Rates</em> compatible API. <em>Defaults to the standard Fixer.io Latest Rates API</em></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>secure</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether the request should be made over HTTP or HTTPS. The basic <em>Fixer.io</em> plan only supports HTTP. Defaults to true (HTTPS).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>accessKey</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The API access key issued by Fixer.io. <em>Optional if you are using a compatible API that does not require an access key.</em></p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Completes with a Swift <code>Result&lt;Exchange, FixerError&gt;</code> type. If the <code>URLSessionTask</code> is cancelled before completion,
+          then this closure will not get called.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An optional <code>URLSessionTask</code> handling the network request for the Fixer.io API call.
+       If no call was made, due to error, then <code>nil</code> will be returned.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C10Completiona"></a>
+                    <a name="//apple_ref/swift/Alias/FixerCompletion" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C10Completiona">FixerCompletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">FixerCompletion</span> <span class="o">=</span> <span class="p">(</span><span class="n">_</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt"><a href="../../Structs/Exchange.html">Exchange</a></span><span class="p">,</span> <span class="kt"><a href="../../Structs/Exchange/Fixer/FixerError.html">FixerError</a></span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>result</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A Swift <code>Result&lt;Exchange, FixerError&gt;</code> type.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Error%20Handling"></a>
+                <a name="//apple_ref/swift/Section/Error Handling" class="dashAnchor"></a>
+                <a href="#/Error%20Handling">
+                  <h3 class="section-name">Error Handling</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV0C5ErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/FixerError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV0C5ErrorO">FixerError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Errors that can occur when requesting an <code><a href="../../Structs/Exchange.html">Exchange</a></code> value using the Fixer.io API</p>
+
+                        <a href="../../Structs/Exchange/Fixer/FixerError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">FixerError</span> <span class="p">:</span> <span class="kt">Error</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Fixer.io%20Default%20Parameters"></a>
+                <a name="//apple_ref/swift/Section/Fixer.io Default Parameters" class="dashAnchor"></a>
+                <a href="#/Fixer.io%20Default%20Parameters">
+                  <h3 class="section-name">Fixer.io Default Parameters</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV11defaultHostSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/defaultHost" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV11defaultHostSSvpZ">defaultHost</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The standard Fixer.io host for API calls: <code>data.fixer.io</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">defaultHost</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV14detaultAPIPathSSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/detaultAPIPath" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV14detaultAPIPathSSvpZ">detaultAPIPath</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The standard path for the <em>Latest Rates</em> API: <code>api/latest</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">detaultAPIPath</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:16MonetaryExchange0B0V5FixerV014accessKeyQueryE0SSvpZ"></a>
+                    <a name="//apple_ref/swift/Variable/accessKeyQueryKey" class="dashAnchor"></a>
+                    <a class="token" href="#/s:16MonetaryExchange0B0V5FixerV014accessKeyQueryE0SSvpZ">accessKeyQueryKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The URL query item key used to supply the API access key: <code>access_key</code></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="k">let</span> <span class="nv">accessKeyQueryKey</span><span class="p">:</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://softwareengineering.io" target="_blank" rel="external">Software Engineering Limited</a>. All rights reserved. (Last updated: 2019-10-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
