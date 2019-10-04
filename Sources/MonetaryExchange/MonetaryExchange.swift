@@ -130,3 +130,22 @@ extension Exchange {
         })
     }
 }
+
+// MARK: CustomStringConvertible
+
+extension Exchange: CustomStringConvertible {
+    
+    /// Returns a table of base/quote exchange rates
+    ///
+    /// For example:
+    ///
+    ///     EUR/KMF = 492.307567
+    ///     EUR/COP = 3780.992416
+    ///     EUR/DOP = 57.558938
+    ///     ...
+    public var description: String {
+        
+        return rates.map { currency, rate in "\(base.code)/\(currency.code) = \(rate.description)"}
+            .joined(separator: "\n")
+    }
+}
