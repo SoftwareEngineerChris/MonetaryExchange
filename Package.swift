@@ -10,6 +10,10 @@ let package = Package(
             name: "MonetaryExchange",
             type: .static,
             targets: ["MonetaryExchange"]),
+        .library(
+            name: "MonetaryExchangeSample",
+            type: .static,
+            targets: ["MonetaryExchangeSample"]),
     ],
     dependencies: [
         .package(url: "https://github.com/SoftwareEngineerChris/MonetaryAmount.git", from: "1.0.0")
